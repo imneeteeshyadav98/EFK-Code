@@ -90,7 +90,7 @@ spec:
             memory: 200Mi
         volumeMounts:
         - name: varlog
-          mountPath: /var/log/customlog/*.log
+          mountPath: /var/log/customlog
         # When actual pod logs in /var/lib/docker/containers, the following lines should be used.
         # - name: dockercontainerlogdirectory
         #   mountPath: /var/lib/docker/containers
@@ -102,7 +102,7 @@ spec:
       volumes:
       - name: varlog
         hostPath:
-          path: /var/log/customlog/customlog.log
+          path: /var/log/customlog
       # When actual pod logs in /var/lib/docker/containers, the following lines should be used.
       # - name: dockercontainerlogdirectory
       #   hostPath:

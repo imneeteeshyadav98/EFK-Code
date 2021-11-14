@@ -15,7 +15,7 @@ data:
       include_tag_key true
       host "#{ENV['FLUENT_ELASTICSEARCH_HOST']}"
       port "#{ENV['FLUENT_ELASTICSEARCH_PORT']}"
-      index_name fluentd-k12s
+      index_name fluentd-21s
       type_name fluentd
     </match>
   kubernetes.conf: |-
