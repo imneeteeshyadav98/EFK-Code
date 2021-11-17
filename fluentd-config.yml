@@ -15,7 +15,7 @@ data:
       include_tag_key true
       host "#{ENV['FLUENT_ELASTICSEARCH_HOST']}"
       port "#{ENV['FLUENT_ELASTICSEARCH_PORT']}"
-      index_name fluentd-21s
+      index_name fluentd-2
       type_name fluentd
     </match>
   kubernetes.conf: |-
@@ -25,7 +25,7 @@ data:
     <source>
       @type tail
       @id in_tail_containers_logs
-      path /var/log/customlog/*.log
+      path /var/neeteshappscoop/*.log
       pos_file /var/log/fluentd-containers.log.pos
       tag kubernetes.*
       read_from_head true

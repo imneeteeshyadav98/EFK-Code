@@ -60,7 +60,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: fluentd
-        image: fluent/fluentd-kubernetes-daemonset:v1-debian-elasticsearch
+        image: fluent/fluentd-kubernetes-daemonset:v1.14-debian-elasticsearch6-1
         env:
           - name:  FLUENT_ELASTICSEARCH_HOST
             value: "elasticsearch-logging"
@@ -90,7 +90,7 @@ spec:
             memory: 200Mi
         volumeMounts:
         - name: varlog
-          mountPath: /var/log/customlog
+          mountPath: /var/neeteshappscoop
         # When actual pod logs in /var/lib/docker/containers, the following lines should be used.
         # - name: dockercontainerlogdirectory
         #   mountPath: /var/lib/docker/containers
@@ -101,8 +101,8 @@ spec:
       terminationGracePeriodSeconds: 30
       volumes:
       - name: varlog
-        hostPath:
-          path: /var/log/customlog
+        persistentVolumeClaim:
+         claimName: azurefile-pvc-01
       # When actual pod logs in /var/lib/docker/containers, the following lines should be used.
       # - name: dockercontainerlogdirectory
       #   hostPath:
